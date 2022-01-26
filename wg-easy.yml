@@ -1,0 +1,44 @@
+version: '3.7'
+services:
+  app:
+    image: weejewel/wg-easy
+    secrets:
+      - dyndns
+      - wg-easy_password
+    environment:
+# Password with Docker Secrets not working atm, so no password for now
+#      - PASSWORD="/run/secrets/wg-easy_password"
+      - WG_HOST=/run/secrets/dyndns
+    networks:
+      - bridge
+    ports:
+      - target: 51820
+        published: 8080
+        protocol: udp
+        mode: host
+      - target: 51821
+        published: 51821
+        protocol: tcp
+        mode: host
+    volumes:
+      - 'wireguard:/etc/wireguard'
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv4.conf.all.src_valid_mark=1
+
+volumes:
+  wireguard:
+
+networks:
+  bridge:
+   external: true
+   name: bridge
+
+secrets:
+  dyndns:
+    external: true
+  wg-easy_password:
+    external: true

@@ -1,0 +1,21 @@
+version: '3.4'
+services:
+  app:
+    image: oznu/homebridge:latest
+    networks:
+      - hostnetwork
+    environment:
+      - PGID=1000
+      - PUID=1000
+      - HOMEBRIDGE_CONFIG_UI=1
+# Standardlogin ist admin:admin
+      - HOMEBRIDGE_CONFIG_UI_PORT=8581
+    volumes:
+      - app:/homebridge
+networks:
+  hostnetwork:
+    external:
+      name: "host"
+
+volumes:
+   app:

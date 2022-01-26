@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  app:
+    image: adguard/adguardhome:latest
+    volumes:
+        - 'work:/opt/adguardhome/work'
+        - 'conf:/opt/adguardhome/conf'
+    environment:
+        - "TZ=Europe/Berlin"
+    ports:
+        - target: 53
+          published: 53
+          mode: host
+        - target: 53
+          published: 53
+          protocol: udp
+          mode: host
+        - target: 3000
+          published: 3000
+          mode: host
+        - target: 80
+          published: 82
+          mode: host
+
+
+volumes:
+  work:
+  conf:
