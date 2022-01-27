@@ -9,6 +9,7 @@ services:
       - PUID=1000
       - HOMEBRIDGE_CONFIG_UI=1
 # Standardlogin ist admin:admin
+# Changing the Port doesnt work for me (github issue: https://github.com/oznu/docker-homebridge/issues/415)
       - HOMEBRIDGE_CONFIG_UI_PORT=84
     volumes:
       - app:/homebridge
