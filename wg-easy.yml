@@ -12,12 +12,13 @@ services:
     networks:
       - bridge
     ports:
+# Public Port 8080 (opened in firewall, most networks havent blocked this port)
       - target: 51820
         published: 8080
         protocol: udp
         mode: host
       - target: 51821
-        published: 51821
+        published: 85
         protocol: tcp
         mode: host
     volumes:

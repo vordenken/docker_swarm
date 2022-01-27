@@ -3,7 +3,7 @@ services:
    app:
     image: statping/statping
     ports:
-      - 89:8080
+      - 87:8080
     volumes:
       - app:/app
 

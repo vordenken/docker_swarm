@@ -9,7 +9,7 @@ services:
       - PUID=1000
       - HOMEBRIDGE_CONFIG_UI=1
 # Standardlogin ist admin:admin
-      - HOMEBRIDGE_CONFIG_UI_PORT=8581
+      - HOMEBRIDGE_CONFIG_UI_PORT=84
     volumes:
       - app:/homebridge
 networks:

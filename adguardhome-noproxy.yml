@@ -22,7 +22,6 @@ services:
           published: 82
           mode: host
 
-
 volumes:
   work:
   conf:

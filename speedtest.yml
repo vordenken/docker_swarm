@@ -3,7 +3,7 @@ services:
     app:
         image: henrywhitaker3/speedtest-tracker:latest-arm
         ports:
-            - 8765:80
+            - 83:80
         volumes:
             - speedtest:/config
         environment:
